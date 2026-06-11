@@ -5,7 +5,7 @@
 **Primitive:** Fully Homomorphic Encryption (FHE)
 **Platform:** Zama fhEVM (Sepolia testnet)
 **Deployed Contract:** `0xD20F1d8Aded8425E8bae6cF9f7b4Cae985027878`
-**Repository:** `[TODO: insert GitHub URL]`
+**Repository:** `https://github.com/Nika-Sard/Blockchain-Higher-Lower-Game`
 
 ---
 

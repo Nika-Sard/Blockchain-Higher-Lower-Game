@@ -1,6 +1,6 @@
 # Private Higher/Lower Card Game
 
-A two-player card game on Zama's fhEVM (Sepolia testnet) where card values are encrypted using **Fully Homomorphic Encryption (FHE)**. Neither player can see the opponent's card until both commit to revealing — enforced cryptographically, not by trust.
+A two-player card game on Zama's fhEVM (Sepolia testnet) where card values are encrypted using **Fully Homomorphic Encryption (FHE)**. Neither player can see the opponent's card until both commit to revealing - enforced cryptographically, not by trust.
 
 **Deployed contract:** `0xD20F1d8Aded8425E8bae6cF9f7b4Cae985027878` (Sepolia)
 
@@ -9,13 +9,13 @@ A two-player card game on Zama's fhEVM (Sepolia testnet) where card values are e
 ## How It Works
 
 1. Player 1 creates a game and shares the Game ID
-2. Player 2 joins using that ID — cards are dealt (encrypted) immediately
+2. Player 2 joins using that ID - cards are dealt (encrypted) immediately
 3. Each player clicks **Show My Card** to privately decrypt their own card (opponent cannot see it)
-4. Both click **Ready to Reveal** — contract compares cards homomorphically using FHE
+4. Both click **Ready to Reveal** - contract compares cards homomorphically using FHE
 5. The Zama KMS network decrypts the result, round winner is displayed
 6. Best of 3 rounds wins
 
-Card values never appear in plaintext on-chain during a game. The comparison is computed on ciphertexts — only the result is revealed after both players commit.
+Card values never appear in plaintext on-chain during a game. The comparison is computed on ciphertexts - only the result is revealed after both players commit.
 
 ---
 
@@ -23,9 +23,9 @@ Card values never appear in plaintext on-chain during a game. The comparison is 
 
 The contract is already deployed. You only need:
 
-1. **MetaMask** — install from [metamask.io](https://metamask.io)
-2. **Switch to Sepolia testnet** — Settings → Networks → Sepolia
-3. **Get free Sepolia ETH** — from [sepoliafaucet.com](https://sepoliafaucet.com) (needed to pay transaction gas)
+1. **MetaMask** - install from [metamask.io](https://metamask.io)
+2. **Switch to Sepolia testnet** - Settings → Networks → Sepolia
+3. **Get free Sepolia ETH** - from [sepoliafaucet.com](https://sepoliafaucet.com) (needed to pay transaction gas)
 4. **Run the frontend:**
 
 ```bash
@@ -87,7 +87,7 @@ npx hardhat run scripts/deploy.js --network sepolia
 Copy-Item "artifacts/contracts/HigherLower.sol/HigherLower.json" "frontend/src/abi/HigherLower.json"
 ```
 
-> **What is the ABI?** A JSON file describing every public contract function. The frontend uses it to encode calls and decode responses. It must match the deployed contract — copy it after every redeploy.
+> **What is the ABI?** A JSON file describing every public contract function. The frontend uses it to encode calls and decode responses. It must match the deployed contract - copy it after every redeploy.
 
 ---
 
@@ -96,7 +96,7 @@ Copy-Item "artifacts/contracts/HigherLower.sol/HigherLower.json" "frontend/src/a
 | Layer | Technology |
 |---|---|
 | Smart contract | Solidity ^0.8.24, `@fhevm/solidity@0.11.1` |
-| FHE operations | Zama TFHE — `euint8`, `FHE.lt()`, `FHE.eq()`, `FHE.checkSignatures()` |
+| FHE operations | Zama TFHE - `euint8`, `FHE.lt()`, `FHE.eq()`, `FHE.checkSignatures()` |
 | Testnet | Ethereum Sepolia (chainId 11155111) |
 | Frontend | Vite + React + Tailwind CSS |
 | Wallet | MetaMask + ethers.js v6 |
@@ -106,8 +106,8 @@ Copy-Item "artifacts/contracts/HigherLower.sol/HigherLower.json" "frontend/src/a
 
 ## Privacy Guarantee
 
-- Card values are stored as `euint8` FHE ciphertexts — unreadable even from public chain storage
-- Round winner is computed via `FHE.lt()` on ciphertexts — no plaintext intermediate ever written on-chain
+- Card values are stored as `euint8` FHE ciphertexts - unreadable even from public chain storage
+- Round winner is computed via `FHE.lt()` on ciphertexts - no plaintext intermediate ever written on-chain
 - Each player views their own card via user-decryption: signed in MetaMask, decrypted in-browser, never passes through any server in plaintext
 - `FHE.checkSignatures()` prevents anyone from submitting a fabricated decryption result
 
